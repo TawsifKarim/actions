@@ -1,10 +1,34 @@
 name: first-workflow
 on: push
 jobs:
-  first-job: 
+  say-hi:
     runs-on: ubuntu-latest
     steps:
       - name: Print Something
         run: echo "hello world"
       - name: say goodbye
         run: echo "good bye!"
+  run-porject:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+      - name: Build Project
+        run: go build .
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+      - name: "running test"
+        run: go test
