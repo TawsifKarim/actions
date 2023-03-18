@@ -1,0 +1,10 @@
+name: first-workflow
+on: push
+jobs:
+  first-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Something
+        run: echo "hello world"
+      - name: say goodbye
+        run: echo "good bye!"
